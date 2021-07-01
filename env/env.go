@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// Helper function to read an environment or return a default value
+// AsString Helper function to read an environment or return a default value
 func AsString(key string, defaultVal string) string {
 	if value, exists := os.LookupEnv(key); exists {
 		return value
@@ -15,7 +15,7 @@ func AsString(key string, defaultVal string) string {
 	return defaultVal
 }
 
-// Helper function to read an environment variable into integer or return a default value
+// AsInt Helper function to read an environment variable into integer or return a default value
 // Return Default value in case of an error
 func AsInt(name string, defaultVal int) int {
 	valueStr := AsString(name, "")
@@ -25,7 +25,7 @@ func AsInt(name string, defaultVal int) int {
 	return defaultVal
 }
 
-// Helper to read an environment variable into a bool or return default value
+// AsBool Helper to read an environment variable into a bool or return default value
 // Return Default value in case of an error
 func AsBool(name string, defaultVal bool) bool {
 	valStr := AsString(name, "")
@@ -35,7 +35,7 @@ func AsBool(name string, defaultVal bool) bool {
 	return defaultVal
 }
 
-// Helper to read an environment variable into time.Duration or return default value
+// AsMillisecondDuration Helper to read an environment variable into time.Duration or return default value
 // Return Default value in case of an error
 func AsMillisecondDuration(name string, defaultVal time.Duration) time.Duration {
 	valInt := AsInt(name, -1)
@@ -45,7 +45,7 @@ func AsMillisecondDuration(name string, defaultVal time.Duration) time.Duration 
 	return time.Millisecond * time.Duration(valInt)
 }
 
-// Helper to read an environment variable into time.Duration or return default value
+// AsSecondDuration Helper to read an environment variable into time.Duration or return default value
 // Return Default value in case of an error
 func AsSecondDuration(name string, defaultVal time.Duration) time.Duration {
 	valInt := AsInt(name, -1)
@@ -55,7 +55,7 @@ func AsSecondDuration(name string, defaultVal time.Duration) time.Duration {
 	return time.Second * time.Duration(valInt)
 }
 
-// Helper to read an environment variable into a string array or return default value
+// AsStringArray Helper to read an environment variable into a string array or return default value
 // Return Default value in case of an error
 func AsStringArray(key string, separator string, defaultVal []string) []string {
 	valueStr := AsString(key, "")
