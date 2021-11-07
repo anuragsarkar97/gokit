@@ -8,18 +8,23 @@ var Green = "\033[32m"
 var Yellow = "\033[33m"
 var Blue = "\033[34m"
 
+var infoLog = Green + "[INFO] " + Reset
+var warnLog = Yellow + "[WARN] " + Reset
+var errorLog = Red + "[ERROR] " + Reset
+var debugLog = Blue + "[DEBUG] " + Reset
+
 func Info(query string, val ...interface{}) {
-	log.Printf(Green+"[INFO] "+Reset+query, val...)
+	log.Printf(infoLog+query, val...)
 }
 
 func Error(query string, val ...interface{}) {
-	log.Printf(Red+"[ERROR] "+Reset+query, val...)
+	log.Printf(errorLog+query, val...)
 }
 
 func Debug(query string, val ...interface{}) {
-	log.Printf(Yellow+"[DEBUG] "+Reset+query, val...)
+	log.Printf(debugLog+query, val...)
 }
 
 func Warn(query string, val ...interface{}) {
-	log.Printf(Blue+"[WARN] "+Reset+query, val...)
+	log.Printf(warnLog+query, val...)
 }

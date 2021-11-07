@@ -1,6 +1,8 @@
 package log
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestInfo(t *testing.T) {
 	Info("haha %s %s", "world", "!")
